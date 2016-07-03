@@ -5,10 +5,10 @@ URL = require('socket.url')
 JSON = require('dkjson')
 HTTPS = require('ssl.https')
 ----config----
-local bot_api_key = ""
+local bot_api_key = "246831160:AAH6FqNaY5kF81Bz5fwgzlZsc_uVsiHW0ks"
 local BASE_URL = "https://api.telegram.org/bot"..bot_api_key
 local BASE_FOLDER = ""
-local start = [[HI
+local start = [[Hi
 /bold text 
 return bold text
 
@@ -38,13 +38,15 @@ send markdown link to a channel
 send code text to a channel
 
 
--ohther
+-other
 
 sticker to photo 
 just send a sticker
 
 photo to sticker
 just send a photo
+
+[Creator](https://telegram.me/arshiahp)
 ]]
 -------
 
@@ -52,7 +54,7 @@ just send a photo
 
 function is_admin(msg)-- Check if user is admin or not
   local var = false
-  local admins = {}-- put your id here
+  local admins = {46853604}-- put your id here
   for k,v in pairs(admins) do
     if msg.from.id == v then
       var = true
@@ -202,7 +204,7 @@ function bot_run()
 
 	bot = bot.result
 
-	local bot_info = "Username = @"..bot.username.."\nName = "..bot.first_name.."\nId = "..bot.id.." \nbased on linux-file-manager :D\nthx to @imandaneshi\neditor: @unfriendly"
+	local bot_info = "Username = @"..bot.username.."\nName = "..bot.first_name.."\nId = "..bot.id.." \nbased on linux-file-manager :D\nCreator:@arshiahp"
 
 	print(bot_info)
 
@@ -214,7 +216,7 @@ function bot_run()
 end
 
 function msg_processor(msg)
-	start = start..'\n[Source](https://github.com/pAyDaAr/lua-api-bot)'
+	start = start..'\n'
 	if msg.new_chat_participant or msg.new_chat_title or msg.new_chat_photo or msg.left_chat_participant then return end
 	if msg.audio or msg.document or msg.video or msg.voice then return end -- Admins only !
 	if msg.date < os.time() - 5 then -- Ignore old msgs
